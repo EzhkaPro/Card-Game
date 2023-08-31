@@ -14,7 +14,6 @@ a {
     font-display: swap;
     src: url("./assets/fonts/stratosskyengweb-regular.woff2") format("woff2");
     src: url("./assets/fonts/stratosskyengweb-regular.woff") format("woff");
-
 }
 
 .center {
@@ -31,7 +30,6 @@ body {
     font-family: StratosSkyeng;
     background: #004980;
 }
-
 
 .complexity-box {
     width: 480px;
@@ -107,7 +105,8 @@ input[type="radio"]:checked+.level {
     border: 3px solid #44d2ff;
 }
 
-.start-button {
+.start-button,
+.restart {
     width: 246px;
     height: 48px;
     color: #fff;
@@ -122,4 +121,84 @@ input[type="radio"]:checked+.level {
 .start-button:hover {
     scale: 1.03;
     border: 3px solid #44d2ff;
+}
+
+.play-field {
+    display: flex;
+    width: 976px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.level-6 {
+    width: 320px;
+}
+
+.level-12 {
+    width: 430px;
+}
+
+.level-18 {
+    width: 650px;
+}
+
+
+.game-header {
+    margin: 22px 0 35px;
+    width: 976px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer {
+    font-family: StratosSkyeng;
+    font-weight: 400;
+    color: #fff;
+    width: 155px;
+    height: 91px;
+}
+
+.time {
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: 0;
+    text-align: left;
+}
+
+.time-labels {
+    font-family: StratosSkyeng;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 32px;
+    padding-right: 5px;
+}
+
+.timer-title {
+    width: 155px;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row nowrap;
+    align-content: center;
+    align-items: center;
+    gap: 52px;
+}
+
+.jacket {
+    width: 95px;
+    height: 133px;
+    background-image: url("./assets/img/cards/рубашка.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.2s linear;
 }
