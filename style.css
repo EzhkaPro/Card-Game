@@ -27,7 +27,7 @@ body {
     display: flex;
     align-items: center;
     flex-flow: column wrap;
-    font-family: StratosSkyeng;
+    font-family: StratosSkyeng, sans-serif;
     background: #004980;
 }
 
@@ -52,7 +52,8 @@ body {
     height: 96px;
     padding-top: 26px;
     font-size: 40px;
-    font-family: StratosSkyeng;
+    font-family: StratosSkyeng, sans-serif;
+    ;
     line-height: 48px;
 }
 
@@ -86,7 +87,8 @@ label {
     flex-shrink: 0;
     color: #0080c1;
     font-size: 64px;
-    font-family: StratosSkyeng;
+    font-family: StratosSkyeng, sans-serif;
+    ;
     border-radius: 12px;
     background: #fff;
     border: none;
@@ -111,7 +113,8 @@ input[type="radio"]:checked+.level {
     height: 48px;
     color: #fff;
     font-size: 24px;
-    font-family: StratosSkyeng;
+    font-family: StratosSkyeng, sans-serif;
+    ;
     line-height: 32px;
     border-radius: 12px;
     background: var(--salad-60, #7ac100);
@@ -162,7 +165,8 @@ ul {
 }
 
 .timer {
-    font-family: StratosSkyeng;
+    font-family: StratosSkyeng, sans-serif;
+    ;
     font-weight: 400;
     color: #fff;
     width: 155px;
@@ -177,7 +181,8 @@ ul {
 }
 
 .time-labels {
-    font-family: StratosSkyeng;
+    font-family: StratosSkyeng, sans-serif;
+    ;
     font-size: 16px;
     font-style: normal;
     line-height: 32px;
