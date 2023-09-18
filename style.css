@@ -53,7 +53,6 @@ body {
     padding-top: 26px;
     font-size: 40px;
     font-family: StratosSkyeng, sans-serif;
-    ;
     line-height: 48px;
 }
 
@@ -88,7 +87,6 @@ label {
     color: #0080c1;
     font-size: 64px;
     font-family: StratosSkyeng, sans-serif;
-    ;
     border-radius: 12px;
     background: #fff;
     border: none;
@@ -102,7 +100,7 @@ input[type="radio"] {
     display: none;
 }
 
-input[type="radio"]:checked+.level {
+input[type="radio"]:checked + .level {
     scale: 1.15;
     border: 3px solid #44d2ff;
 }
@@ -114,7 +112,6 @@ input[type="radio"]:checked+.level {
     color: #fff;
     font-size: 24px;
     font-family: StratosSkyeng, sans-serif;
-    ;
     line-height: 32px;
     border-radius: 12px;
     background: var(--salad-60, #7ac100);
@@ -153,7 +150,6 @@ ul {
     width: 650px;
 }
 
-
 .game-header {
     margin: 22px 0 35px;
     width: 976px;
@@ -166,7 +162,6 @@ ul {
 
 .timer {
     font-family: StratosSkyeng, sans-serif;
-    ;
     font-weight: 400;
     color: #fff;
     width: 155px;
@@ -182,7 +177,6 @@ ul {
 
 .time-labels {
     font-family: StratosSkyeng, sans-serif;
-    ;
     font-size: 16px;
     font-style: normal;
     line-height: 32px;

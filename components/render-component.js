@@ -1,5 +1,4 @@
-import { goToPage, page, setPage } from "../index.js";
-import { EASY_PAGE, MEDIUM_PAGE, HARD_PAGE } from "../index.js";
+import { renderGameComponent } from "./game-component.js";
 
 let appEl = document.getElementById("app");
 
@@ -33,36 +32,20 @@ export const renderApp = () => {
         <button type="submit" id="start-button" class="start-button">Старт</button>
     </form>
     `;
-
     appEl.innerHTML = appHtml;
 
-    const easyLevel = document.getElementById("easy-level");
-    const mediumLevel = document.getElementById("medium-level");
-    const hardLevel = document.getElementById("hard-level");
     const startButton = document.getElementById("start-button");
-    const startButtonGame = [easyLevel, mediumLevel, hardLevel];
-
-    startButtonGame.forEach((el) => {
-        el.addEventListener("click", () => {
-            startButtonGame.forEach((el) => {
-                el.removeAttribute("checked");
-            });
-            el.setAttribute("checked", "");
-        });
-    });
-
-    startButton.addEventListener("click", () => {
-        if (easyLevel.hasAttribute("checked")) {
-            setPage(EASY_PAGE);
-            goToPage(page);
-        }
-        if (mediumLevel.hasAttribute("checked")) {
-            setPage(MEDIUM_PAGE);
-            goToPage(page);
-        }
-        if (hardLevel.hasAttribute("checked")) {
-            setPage(HARD_PAGE);
-            goToPage(page);
-        }
-    });
+    if (startButton) {
+        startButton.onclick = () => {
+            const levels = document.querySelectorAll(
+                'input[name="complexity"]',
+            );
+            for (const level of levels) {
+                if (level.checked) {
+                    const gameLevel = level.value;
+                    renderGameComponent(appEl, gameLevel);
+                }
+            }
+        };
+    }
 };

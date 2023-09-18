@@ -1,8 +1,9 @@
-//import { gameLogic } from "../index.js";
-import { cards } from "./card-mas.js";
+import { renderApp } from "./render-component.js";
+import { getCardsArray, gameLogic } from "../index.js";
 import { initTimer } from "./timer.js";
 
 export function renderGameComponent(level, appEl) {
+    const cards = getCardsArray(level);
     const cardsHtml = cards.map((card) => CardHTML(card)).join("");
     const appHtml = `
         <div class="game-header">
@@ -19,22 +20,44 @@ export function renderGameComponent(level, appEl) {
         <ul id="cards">${cardsHtml}</ul>
         </div>`;
 
-    function CardHTML() {
+    function CardHTML(card) {
         return `<li class="jacket">
               <div class="card">
-                  <img src="./assets/img/cards/рубашка.png"" alt = "карта">
+              <img src="${card}" alt = "карта">
               </div>
               `;
     }
     appEl.innerHTML = appHtml;
-
-    const timer = appEl.querySelector < HTMLElement > ".time";
+    const timer = appEl.querySelector(".time");
     if (timer) initTimer(timer);
 
-    const restart = appEl.querySelector < HTMLElement > ".restart";
+    const restart = appEl.querySelector(".restart");
     if (restart)
         restart.onclick = () => {
-            renderGameComponent(appEl);
+            renderApp(appEl);
         };
-    //gameLogic(cards);
+    gameLogic(cards);
+}
+
+export function renderCongratulation(appEl, time, win) {
+    const winHtml = `<div class="finish-game">
+      <div class="image">
+      <img src=${
+          win ? "./assets/img/celebration.png" : "./assets/img/dead.png"
+      } alt = "картинка">
+      </div>
+      <h3 class="win-title">Вы ${win ? "выиграли" : "проиграли"}!</h3>
+      <!-- <div class="time"> -->
+      <p class="time-text">Затраченное время:</p>
+      <p class="time-value">${time}</p>
+      <!-- </div> -->
+      <button class="start-button">Играть снова</button>
+    </div>`;
+    appEl.innerHTML = winHtml;
+
+    const restart = appEl.querySelector(".start-button");
+    if (restart)
+        restart.onclick = () => {
+            renderApp(appEl);
+        };
 }
