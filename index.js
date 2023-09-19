@@ -1,4 +1,4 @@
-//import './styles.css'
+import "./style.css";
 import { renderCongratulation } from "./components/game-component.js";
 import { renderApp } from "./components/render-component.js";
 
