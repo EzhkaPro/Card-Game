@@ -1,8 +1,6 @@
-import { renderGameComponent } from "./game-component.js";
+import { renderGameComponent } from "./game-component";
 
-let appEl = document.getElementById("app");
-
-export const renderApp = () => {
+export function renderApp(appEl: HTMLElement) {
     const appHtml = `
     <form action="#" class="complexity-box">
         <h1 class="complexity-title">Выбери сложность</h1>
@@ -11,21 +9,21 @@ export const renderApp = () => {
                 <input type="radio" 
                 id="easy-level"
                 name="complexity" 
-                value="Легкий уровень - 6 карточек (3 пары)">
+                value="6">
                 <span class="level">1</span>
             </label>
             <label for="medium-level">
                 <input type="radio" 
                 id="medium-level"
                 name="complexity" 
-                value="Средний уровень - 12 карточек (6 пар)">
+                value="12">
                 <span class="level">2</span>
             </label>
             <label for="hard-level">
                 <input type="radio" 
                 id="hard-level"
                 name="complexity" 
-                value="Сложный уровень - 18 карточек (9 пар)">
+                value="18">
                 <span class="level">3</span>
             </label>
         </fieldset>
@@ -34,18 +32,18 @@ export const renderApp = () => {
     `;
     appEl.innerHTML = appHtml;
 
-    const startButton = document.getElementById("start-button");
+    const startButton = appEl.querySelector<HTMLElement>(".start-button");
     if (startButton) {
         startButton.onclick = () => {
-            const levels = document.querySelectorAll(
+            const levels: NodeListOf<HTMLInputElement> = appEl.querySelectorAll(
                 'input[name="complexity"]',
             );
             for (const level of levels) {
                 if (level.checked) {
-                    const gameLevel = level.value;
-                    renderGameComponent(appEl, gameLevel);
+                    const gameLevel = Number(level.value);
+                    renderGameComponent(gameLevel, appEl);
                 }
             }
         };
     }
-};
+}

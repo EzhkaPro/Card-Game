@@ -1,8 +1,8 @@
-import { renderApp } from "./render-component.js";
-import { getCardsArray, gameLogic } from "../index.js";
-import { initTimer } from "./timer.js";
+import { renderApp } from "./render-component";
+import { getCardsArray, gameLogic } from "../index";
+import { initTimer } from "./timer";
 
-export function renderGameComponent(level, appEl) {
+export function renderGameComponent(level: number, appEl: HTMLElement) {
     const cards = getCardsArray(level);
     const cardsHtml = cards.map((card) => CardHTML(card)).join("");
     const appHtml = `
@@ -20,7 +20,7 @@ export function renderGameComponent(level, appEl) {
         <ul id="cards">${cardsHtml}</ul>
         </div>`;
 
-    function CardHTML(card) {
+    function CardHTML(card: string) {
         return `<li class="jacket">
               <div class="card">
               <img src="${card}" alt = "карта">
@@ -28,10 +28,10 @@ export function renderGameComponent(level, appEl) {
               `;
     }
     appEl.innerHTML = appHtml;
-    const timer = appEl.querySelector(".time");
+    const timer = appEl.querySelector<HTMLElement>(".time");
     if (timer) initTimer(timer);
 
-    const restart = appEl.querySelector(".restart");
+    const restart = appEl.querySelector<HTMLElement>(".restart");
     if (restart)
         restart.onclick = () => {
             renderApp(appEl);
@@ -39,11 +39,15 @@ export function renderGameComponent(level, appEl) {
     gameLogic(cards);
 }
 
-export function renderCongratulation(appEl, time, win) {
+export function renderCongratulation(
+    appEl: HTMLElement,
+    time: string,
+    win?: string,
+) {
     const winHtml = `<div class="finish-game">
       <div class="image">
       <img src=${
-          win ? "./assets/img/celebration.png" : "./assets/img/dead.png"
+          win ? "./assets/img/celebration.png" : "./assets/img/loser.png"
       } alt = "картинка">
       </div>
       <h3 class="win-title">Вы ${win ? "выиграли" : "проиграли"}!</h3>
@@ -55,7 +59,7 @@ export function renderCongratulation(appEl, time, win) {
     </div>`;
     appEl.innerHTML = winHtml;
 
-    const restart = appEl.querySelector(".start-button");
+    const restart = appEl.querySelector<HTMLElement>(".start-button");
     if (restart)
         restart.onclick = () => {
             renderApp(appEl);

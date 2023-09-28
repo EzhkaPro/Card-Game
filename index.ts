@@ -1,9 +1,10 @@
 import "./style.css";
-import { renderCongratulation } from "./components/game-component.js";
-import { renderApp } from "./components/render-component.js";
+import { renderCongratulation } from "./components/game-component";
+import { renderApp } from "./components/render-component";
+import * as _ from "lodash";
 
-export function getCardsArray(level) {
-    let cards = [
+export function getCardsArray(complex: number) {
+    let cards: string[] = [
         "./assets/img/cards/6 бубны.png",
         "./assets/img/cards/6 крести.png",
         "./assets/img/cards/6 пики.png",
@@ -41,33 +42,25 @@ export function getCardsArray(level) {
         "./assets/img/cards/туз пики.png",
         "./assets/img/cards/туз черви.png",
     ];
-    let numCards = 6;
-    if (level === "easy-level") {
-        numCards = 6;
-    } else if (level === "medium-level") {
-        numCards = 12;
-    } else if (level === "hard-level") {
-        numCards = 18;
-    }
-    console.log("Кол-во карт :", numCards);
-
-    cards = cards.concat(cards.slice(0, level / 2));
-
-    console.log(cards);
+    const shuffledCards = _.shuffle(cards);
+    const slicedArray = shuffledCards.slice(0, complex / 2);
+    const duplicatedArray = _.concat(slicedArray, slicedArray);
+    return _.shuffle(duplicatedArray);
 }
 
 const appEl = document.getElementById("app");
-let firstCard = null;
-let secondCard = null;
+let firstCard: number | null = null;
+let secondCard: number | null = null;
 let clickable = true;
+
 if (appEl) renderApp(appEl);
 
-export function gameLogic(cards) {
+export function gameLogic(cards: string[]) {
     if (appEl) {
         const cardsJackets = appEl.querySelectorAll(".jacket");
         cardsJackets.forEach((cardsJacket) => {
             setTimeout(
-                () => cardsJacket.firstElementChild?.classList.add("secrete"),
+                () => cardsJacket.firstElementChild?.classList.add("secret"),
                 5000,
             );
             setTimeout(() => cardsJacket.classList.add("coup"), 5000);
@@ -117,7 +110,10 @@ export function gameLogic(cards) {
                                 clickable = true;
                             } else {
                                 if (appEl) {
-                                    const time = appEl.querySelector(".time");
+                                    const time =
+                                        appEl.querySelector<HTMLElement>(
+                                            ".time",
+                                        );
                                     if (time)
                                         renderCongratulation(
                                             appEl,
@@ -134,7 +130,10 @@ export function gameLogic(cards) {
                                 )
                             ) {
                                 if (appEl) {
-                                    const time = appEl.querySelector(".time");
+                                    const time =
+                                        appEl.querySelector<HTMLElement>(
+                                            ".time",
+                                        );
                                     if (time)
                                         renderCongratulation(
                                             appEl,
