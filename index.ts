@@ -80,7 +80,7 @@ export function gameLogic(cards: string[]) {
                         setTimeout(
                             () =>
                                 cardsJacket.firstElementChild?.classList.remove(
-                                    "secrete",
+                                    "secret",
                                 ),
                             200,
                         );
