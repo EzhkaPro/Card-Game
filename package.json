@@ -2,36 +2,47 @@
     "name": "card-game",
     "version": "1.0.0",
     "description": "Карточная игра, суть которой заключается в том, что вам нужно разгадать все пары карт.",
-    "main": "main.js",
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "http-server -p 3004",
-        "format": "prettier --write .",
+        "format": "prettier --write . ",
         "lint:js": "eslint ./*.js",
         "lint:css": "stylelint ./style.css",
         "lint": "npm run lint:js && npm run lint:css",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "start": "webpack-dev-server --open",
+        "build-dev": "webpack",
+        "lint:ts": "tsc --noEmit"
     },
-    "repository": {
-        "type": "git",
-        "url": "(http://github.com/EzhkaPro/Card-Game)"
-    },
-    "author": "galka-lukianova",
+    "author": "",
     "license": "ISC",
     "dependencies": {
+        "babel": "^6.23.0",
         "http-server": "^14.1.1",
-        "lodash": "^4.17.21",
-        "stylelint-config-standard": "^34.0.0",
-        "stylelint-prettier": "^4.0.2",
-        "webpack": "^5.88.2"
+        "husky": "^8.0.3",
+        "lodash": "^4.17.21"
     },
     "devDependencies": {
-        "axios": "^1.4.0",
-        "eslint": "^8.47.0",
+        "@types/lodash": "^4.14.199",
+        "axios": "^1.5.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "css-loader": "^6.8.1",
+        "css-minimizer-webpack-plugin": "^5.0.1",
+        "eslint": "^8.49.0",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.0",
-        "husky": "^8.0.3",
-        "prettier": "github:prettier/prettier",
-        "stylelint": "^15.10.3"
-    }
+        "html-webpack-plugin": "^5.5.3",
+        "mini-css-extract-plugin": "^2.7.6",
+        "prettier": "^3.0.3",
+        "style-loader": "^3.3.3",
+        "stylelint": "^15.10.3",
+        "stylelint-config-standard": "^34.0.0",
+        "stylelint-prettier": "^4.0.2",
+        "ts-loader": "^9.4.4",
+        "typescript": "^5.2.2",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^4.15.1"
+    },
+    "keywords": []
 }

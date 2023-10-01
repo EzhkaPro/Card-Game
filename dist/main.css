@@ -1,3 +1,6 @@
+/*!*************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./style.css ***!
+  \*************************************************************/
 * {
     margin: 0;
     padding: 0;
@@ -12,8 +15,8 @@ a {
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("./assets/fonts/stratosskyengweb-regular.woff2") format("woff2");
-    src: url("./assets/fonts/stratosskyengweb-regular.woff") format("woff");
+    src: url(ce93393e831d32412096.woff2) format("woff2");
+    src: url(d7d99bd522cf2d77ce4a.woff) format("woff");
 }
 
 .center {
@@ -31,8 +34,7 @@ body {
     background: #004980;
 }
 
-.complexity-box,
-.finish-game {
+.complexity-box {
     width: 480px;
     height: 459px;
     display: flex;
@@ -101,7 +103,7 @@ input[type="radio"] {
     display: none;
 }
 
-input[type="radio"]:checked+.level {
+input[type="radio"]:checked + .level {
     scale: 1.15;
     border: 3px solid #44d2ff;
 }
@@ -122,41 +124,6 @@ input[type="radio"]:checked+.level {
 .start-button:hover {
     scale: 1.03;
     border: 3px solid #44d2ff;
-}
-
-.image {
-    width: 96px;
-    height: 96px;
-    flex-shrink: 0;
-}
-
-.finish-game {
-    z-index: 1;
-}
-
-.win-title {
-    color: var(--blue-120, #004980);
-    font-size: 40px;
-    font-family: StratosSkyeng, sans-serif;
-    line-height: 48px;
-    width: 280px;
-    padding: 9px 0 28px;
-}
-
-.time-text {
-    color: #000;
-    font-size: 24px;
-    font-family: StratosSkyeng, sans-serif;
-    line-height: 32px;
-}
-
-
-.time-value {
-    color: #000;
-    font-size: 64px;
-    font-family: StratosSkyeng, sans-serif;
-    line-height: 72px;
-    padding: 10px 0 40px;
 }
 
 .play-field {
@@ -232,20 +199,11 @@ ul {
 .jacket {
     width: 95px;
     height: 133px;
-    background-image: url(".//assets/img/cards/рубашка.png");
+    background-image: url(6ec366b661d730d7a51f.png);
     background-size: contain;
     background-repeat: no-repeat;
     transition: all 0.2s linear;
 }
 
-.secret {
-    display: none;
-}
 
-.jacket .coup {
-    transform: perspective(100px) rotateY(180deg);
-}
-
-.success {
-    box-sizing: border-box;
-}
+/*# sourceMappingURL=main.css.map*/

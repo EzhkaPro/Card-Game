@@ -1,4 +1,4 @@
-export function initTimer(element) {
+export function initTimer(element: HTMLElement) {
     let minutes = 0;
     let seconds = 0;
     setInterval(() => {
