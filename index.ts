@@ -4,7 +4,7 @@ import { renderApp } from "./components/render-component";
 import * as _ from "lodash";
 
 export function getCardsArray(complex: number) {
-    let cards: string[] = [
+    const cards: string[] = [
         "./assets/img/cards/6 бубны.png",
         "./assets/img/cards/6 крести.png",
         "./assets/img/cards/6 пики.png",
