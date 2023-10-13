@@ -1,5 +1,6 @@
 import { renderApp } from "./render-component";
-import { getCardsArray, gameLogic } from "../index";
+import { gameLogic } from "../index";
+import { getCardsArray } from "./get-cards-array";
 import { initTimer } from "./timer";
 
 export function renderGameComponent(level: number, appEl: HTMLElement) {
